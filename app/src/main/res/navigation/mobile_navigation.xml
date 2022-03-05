@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.estados.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.estados.ui.estado.EstadoFragment"
+        android:label="@string/menu_estado"
+        tools:layout="@layout/fragment_estado" />
 
     <fragment
         android:id="@+id/nav_gallery"
