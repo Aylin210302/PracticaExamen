@@ -12,7 +12,10 @@
         tools:layout="@layout/fragment_estado" >
         <action
             android:id="@+id/action_nav_estados_to_addEstadoFragment"
-            app:destination="@id/addEstadoFragment" />
+            app:destination="@id/nav_add_estado" />
+        <action
+            android:id="@+id/action_nav_estados_to_nav_update_estado"
+            app:destination="@id/nav_update_estado" />
     </fragment>
 
     <fragment
@@ -27,12 +30,24 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
-        android:id="@+id/addEstadoFragment"
+        android:id="@+id/nav_add_estado"
         android:name="com.estados.ui.estado.AddEstadoFragment"
-        android:label="fragment_add_estado"
-        tools:layout="@layout/fragment_add_estado" >
+        android:label="@string/bt_add_estado"
+        tools:layout="@layout/fragment_add_estado">
         <action
             android:id="@+id/action_addEstadoFragment_to_nav_estados"
             app:destination="@id/nav_estados" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_update_estado"
+        android:name="com.estados.ui.estado.UpdateEstadoFragment"
+        android:label="@string/bt_update_estado"
+        tools:layout="@layout/fragment_update_estado" >
+        <action
+            android:id="@+id/action_nav_update_estado_to_nav_estados"
+            app:destination="@id/nav_estados" />
+        <argument
+            android:name="estado"
+            app:argType="com.estados.model.practica" />
     </fragment>
 </navigation>

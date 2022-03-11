@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.estados.R
+import com.estados.adapter.EstadoAdapter
 import com.estados.databinding.FragmentEstadoBinding
 import com.estados.viewmodel.EstadoViewModel
 
@@ -31,6 +32,20 @@ class EstadoFragment : Fragment() {
         binding.floatingActionButton.setOnClickListener{
             findNavController().navigate(R.id.action_nav_estados_to_addEstadoFragment)
         }
+
+        //Activar el Recycler View
+        val estadoAdapter = EstadoAdapter()
+        val reciclador = binding.reciclador // se recupera el recycler view de la vista
+
+        reciclador.adapter = estadoAdapter // se asigna lugarAdapter como el adapter de reciclador
+        reciclador.layoutManager = LinearLayoutManager(requireContext())
+
+        //se crea un "observador" para mostrar la info de la tabla lugares...
+        //se actualiza cuando cambio el set de  datos
+        estadoViewModel.getAllData.observe(viewLifecycleOwner) { lugares ->
+            estadoAdapter.setData(lugares)
+        }
+
         return binding.root
     }
 
