@@ -21,4 +21,19 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="msg_estado_add">Estado</string>
+    <string name="msg_capital_add">Capital</string>
+    <string name="msg_poblacion_add">Poblacion</string>
+    <string name="msg_costas_add">Costas</string>
+    <string name="msg_estados_add">Estado agregado</string>
+    <string name="msg_estado_update">Estado actualizado</string>
+    <string name="msg_estado_delete">Estado eliminado</string>
+
+    <string name="bt_add_estado">Agregar estado</string>
+    <string name="bt_update_estado">Actualizar estado</string>
+    <string name="menu_delete">Eliminar estado</string>
+    <string name="msg_seguroBorrar">"Estas seguro de eliminar "</string>
+    <string name="no">No</string>
+    <string name="si">Si</string>
 </resources>

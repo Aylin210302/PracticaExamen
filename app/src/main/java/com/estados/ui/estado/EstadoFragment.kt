@@ -7,15 +7,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.estados.R
 import com.estados.databinding.FragmentEstadoBinding
 import com.estados.viewmodel.EstadoViewModel
 
 class EstadoFragment : Fragment() {
 
+    private lateinit var estadoViewModel: EstadoViewModel
     private var _binding: FragmentEstadoBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -23,17 +24,14 @@ class EstadoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val estadoViewModel =
-            ViewModelProvider(this).get(EstadoViewModel::class.java)
+        estadoViewModel = ViewModelProvider(this).get(EstadoViewModel::class.java)
 
         _binding = FragmentEstadoBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        estadoViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        binding.floatingActionButton.setOnClickListener{
+            findNavController().navigate(R.id.action_nav_estados_to_addEstadoFragment)
         }
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
